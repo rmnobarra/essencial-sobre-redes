@@ -1,14 +1,10 @@
 # Os modelos de rede tcp/ip e osi
 
-A expressão modelo de redes ou arquitetura de redes, refere-se a um conjunto organizado
-de documentos.
+A expressão modelo de redes ou arquitetura de redes, refere-se a um conjunto organizado de documentos.
 
-Individualmente, descrevem uma pequena função para uma rede. Essas docs também podem definir protolos,
-que nada mais são do que definições de regras lógicas que os dispositivos devem seguir para se
-comunicarem.
+Individualmente, descrevem uma pequena função para uma rede. Essas docs também podem definir protolos, que nada mais são do que definições de regras lógicas que os dispositivos devem seguir para se comunicarem.
 
-Outros documentos podem definir a voltagem e os níveis de corrente usados em determinado meio físico, como
-um cabo de par trançado, por exemplo. 
+Outros documentos podem definir a voltagem e os níveis de corrente usados em determinado meio físico, como um cabo de par trançado, por exemplo. 
 
 Em conjuntos, esses documentos definem todos os detalhes de como criar uma rede funcional completa.
 
@@ -17,14 +13,11 @@ Em conjuntos, esses documentos definem todos os detalhes de como criar uma rede 
 Esses padrões foram criados para que diferentes dispositivos de diferentes fabricantes pudessem
 trocar dados entre si.
 
-Essa história toda remonta lá na decáda de 70 quando a organização de padrão internacional (iso)
-viu que estava uma festa da fruta danada e resolveu criar um padrão aberto, ou melhor
-o modelo de redes de interconexão de sistemas abertos (osi)
+Essa história toda remonta lá na decáda de 70 quando a organização de padrão internacional (iso) viu que estava uma festa da fruta danada e resolveu criar um padrão aberto, ou melhor o modelo de redes de interconexão de sistemas abertos (osi)
 
-Nesse meio tempo, o departamento de defesa do estados unidos da america criavam o modelo tcp/ip
+Nesse meio tempo, o departamento de defesa do estados unidos da america criavam o modelo tcp/ip.
 
-Entre modelo osi e modelo tcp/ip o modelo tcp/ip acabou vencendo, muito por conta do processo de desenvolvimento mais formal e lento do modelo osi. Ainda hoje existe dispositivos que utilizam
-o modelo osi como padrão, mas o modelo que podemos dizer que é dominante é o modelelo tcp/ip.
+Entre modelo osi e modelo tcp/ip o modelo tcp/ip acabou vencendo, muito por conta do processo de desenvolvimento mais formal e lento do modelo osi. Ainda hoje existe dispositivos que utilizam o modelo osi como padrão, mas o modelo que podemos dizer que é dominante é o modelo tcp/ip.
 
 Atualmente, todo sistema operacional suporta o conjunto de protocolos chamado tcp/ip, seja mobile, mac, linux ou Windows.
 
@@ -41,7 +34,7 @@ Atualmente, todo sistema operacional suporta o conjunto de protocolos chamado tc
 
 A camada de aplicação fornece uma interface entre os softwares rodando no computador ou servidor e a própria rede.
 
-Um exemplo bem prático do dia a dia é o acesso a uma página web
+Um exemplo bem prático do dia a dia é o acesso a uma página web:
 
 ![Acesso web](resources/img/acesso_web.png)
 
@@ -51,16 +44,14 @@ Decompondo a imagem, é possível ter uma boa idéia de como os protolos de rede
 
 ![Acesso web com um pouco de detalhe](resources/img/acesso_web_com_um_pouco_de_detalhe.png)
 
-Para obter a página do site pudim.com.br, o solicitante envia algo chamado "cabeçalho http" para
-o servidor web. Esse cabeçalho inclui o comando para se obter (GET) um arquivo, quando o nome do arquivo
-não é enviado na requisição, o servidor web assume que o solicitante deseja obter a página padrão (index.html)
+Para obter a página do site pudim.com.br, o solicitante envia algo chamado "cabeçalho http" para o servidor web. Esse cabeçalho inclui o comando para se obter (GET) um arquivo, quando o nome do arquivo não é enviado na requisição, o servidor web assume que o solicitante deseja obter a página padrão (index.html)
 
 A resposta do servidor também inclui um cabeçalho http, como algo como um simples "OK". Na realidade,
 o cabeçalho inclui um código de retorno HTTP, o qual indica que a requisição pode ser atendida.
 
 Por exemplo, se uma página web não for encontrada durante a requisição do solicitante, a resposta do servidor deve incluir o código HTTP 404 (Não encontrado).
 
-Esses códigos HTTP são chamados de Response Status Codes e são divididas em 5 categorias
+Esses códigos HTTP são chamados de Response Status Codes e são divididos em 5 categorias:
 
 1. Respostas com algum tipo de informação (100 – 199)
 2. Respostas com sucesso (200 – 299)
@@ -94,25 +85,22 @@ Server: Apache/2.4.34 (Amazon) OpenSSL/1.0.2k-fips PHP/5.5.38
 Content-Type: text/html; charset=iso-8859-1
 ```
 
-Este simples exemplo entre o solicitante e o servidor web introduz um dos mais imortantes conceitos gerais por trásdos dos modelos de redes: Quando uma determinada camada de um dispositivo deseja se comunicar a mesma camada de outro dispositivo, como ilustrado acima, cabeçalhos são utilizados para armazenar os dados que serão trocados entre origem e destino. Este processo é chamado de interação de mesma camada.
+Este simples exemplo entre o solicitante e o servidor web introduz um dos mais imortantes conceitos gerais por trás dos modelos de redes: Quando uma determinada camada de um dispositivo deseja se comunicar com a mesma camada de outro dispositivo, como ilustrado acima, cabeçalhos são utilizados para armazenar os dados que serão trocados entre origem e destino. Este processo é chamado de interação de mesma camada.
 
 Os protocolos da camada de aplicação tcp/ip fornecem serviços para as aplicações que são executadas
 em dispositivos, seja um servidor web, etc. A camada de aplicação não define a aplicação em si, mas sim os serviços dos quais as aplicações precisam, como por exemplo, a capacidade de transferir arquivos, neste exemplo, o HTTP. A camada de aplicação fornece uma interface entre os softwares executando no dispositivo e a própria rede.
 
 ### A camada de transporte do tcp / ip
 
-Enquanto a camada de aplicação é recheada de protocolos, a camda de transporte conta basicamente com o protocolo tcp e udp.
+Enquanto a camada de aplicação é recheada de protocolos, a camada de transporte conta basicamente com o protocolo tcp e udp.
 
-Cada camada fornece um serviço para a camada acima dela. Como no exemplo de uma requisição web, qual seria o resultado se a requisição HTTP get do solicitante tivesse se perdido no caminho através de uma
-rede tcp/ip? Ou então se a resposta do web server tivesse se perdido? O resultado lógico é que o site
-pudim.com.br não teria sido renderizado no solicitante.
+Cada camada fornece um serviço para a camada acima dela. Como no exemplo de uma requisição web, qual seria o resultado se a requisição HTTP get do solicitante tivesse se perdido no caminho através de uma rede tcp/ip? Ou então se a resposta do web server tivesse se perdido? O resultado lógico é que o site pudim.com.br não teria sido renderizado no solicitante.
 
 Dessa forma, o tcp/ip precisa de um mecanismo para garantir a entrega dos dados através de uma rede e o tcp fornece recursos de correção de erros para os protocolos de aplicação, usando reconhecimentos (ack, acknowledgements)
 
 ![Acesso web camada de transporte](resources/img/acesso_web_camada_transporte.png)
 
-O solicitante envia uma requisição para o servidor web que é entregue através do protocolo tcp, de maneira
-confiável; O tcp envia os dados http do solicitante para o servidor web e os dados chegam com sucesso.
+O solicitante envia uma requisição para o servidor web que é entregue através do protocolo tcp de maneira confiável. O tcp envia os dados http do solicitante para o servidor web e os dados chegam com sucesso.
 
 O software tcp do servidor web reconhece o recebimento da requisição (ack) e também repassa para o software que executa o web server a requisição HTTP get. O inverso ocorre com a resposta do servidor web que também chega ao solicitante com sucesso.
 
@@ -128,11 +116,11 @@ A camada internet define os detalhes de como a infraestrutura de uma rede deve s
 
 ![Acesso web camada internet](resources/img/acesso_web_camada_internet.png)
 
-Quando o solicitante envia os dados, ele está enviando um pacote IP, o qual incluio cabeçalho IP, o cabeçalho da camada de transporte (TCP, neste exemplo), o cabeçalho da aplicação (HTTP, neste caso).
+Quando o solicitante envia os dados, ele está enviando um pacote IP, o qual inclui o cabeçalho IP, o cabeçalho da camada de transporte (TCP, neste exemplo), o cabeçalho da aplicação (HTTP, neste caso).
 
 O cabeçalho IP também inclui um campo de endereço IP do remetente e um do destinatário.
 
-O solicitante envia o pacote para o roteador1. O roteador1 então examina o endereço ip do destinatário (2.2.2.2.2) e toma uma decisão quanto a rota para enviar o pacote para o roteador3, pois o roteador1 conhece o suficiente sobre a topologia de rede para saber que 2.2.2.2 está do outro lado do roteador3.
+O solicitante envia o pacote para o roteador1. O roteador1 então examina o endereço ip do destinatário (2.2.2.2) e toma uma decisão quanto a rota para enviar o pacote para o roteador3, pois o roteador1 conhece o suficiente sobre a topologia de rede para saber que 2.2.2.2 está do outro lado do roteador3.
 
 O IP define endereços lógicos, chamados endereços ip, os quais permitem que cada dispositivo que entenda o tcp/ip tenha um endereço através do qual possa se comunicar. O ip define também o roteamento, que é processo de como um roteador deverá reencaminhar, ou rotear, pacotes de dados.
 
@@ -156,7 +144,8 @@ A camada de acesso a rede do tcp/ip inclui os protocolos, padrões de cabeamento
 
 ### Encapsulamento de dados do modelo tcp/ip
 
-O termo encapsulamento refere-se ao processo de se colocar cabeçalhos e rodapés em torno de alguns dados. Por exemplo, o servidor web encapsulou o index.html dentro de um cabeçalho HTTP. A camada TCP encapsulou os cabeçalhos HTTP e dados dentro de um cabeçalho TCP. O IP encapsulou cabeçalho TCP e os dados dentro de um cabeçalho IP e a camada de acesso à rede encapsulou o os pacotes IP dentro de um cabeçalho e rodapé
+O termo encapsulamento refere-se ao processo de se colocar cabeçalhos e rodapés em torno de alguns dados. Por exemplo, o servidor web encapsulou o index.html dentro de um cabeçalho HTTP. A camada TCP encapsulou os cabeçalhos HTTP e dados dentro de um cabeçalho TCP. O IP encapsulou cabeçalho TCP e os dados dentro de um cabeçalho IP e a camada de acesso à rede encapsulou o os pacotes IP dentro de um cabeçalho e rodapé.
+
 As figuras apresentadas neste texto podem ser resumidas em cinco etapas:
 
 1. Criar e encapsular os dados da aplicação com quaisquer cabeçalhos da camada de aplicação requeridos. Por exemplo, a mensagem HTTP OK pode ser retornada em um cabeçalho HTTP, seguida de parte do conteúdo de uma página web.
@@ -169,7 +158,7 @@ As figuras apresentadas neste texto podem ser resumidas em cinco etapas:
 
 5. Transmitir os bits. A camada física codifica um sinal para que a midia transmita o frame.
 
-Cada cabeçalho e possivelmente cada rodapé de cada camada em cada em seu nível é chamada de segmento, pacote e frame, segmento para transporte, pacote para internet e frame para acesso a rede.
+Cada cabeçalho e possivelmente cada rodapé de cada camada em seu respectivo nível é chamada de segmento, pacote e frame, segmento para transporte, pacote para internet e frame para acesso a rede.
 
 
 | DATA                                 | Aplicação             |
@@ -183,8 +172,7 @@ Cada cabeçalho e possivelmente cada rodapé de cada camada em cada em seu níve
 
 ![Ozzy Osbourne](resources/img/ozzy.jpg)
 
-O modelo osi possui 7 camadas diante das 4 camadas do modelo tcp/ip. Em diversas literaturas, o modelo
-osi é refenciado talvez por separar melhor cada camada / função.
+O modelo osi possui 7 camadas diante das 4 camadas do modelo tcp/ip. Em diversas literaturas, o modelo osi é refenciado talvez por separar melhor cada camada / função facilitando o entendimento.
 
 ![Modelo osi](resources/img/modelo_osi.jpeg)
 
@@ -211,7 +199,7 @@ EBCDIC, binário, BCD e JPEG. A criptografia é definida pelo OSI como um servi�
 
 5. Sessão
 
-A camada de sessão define como iniciar, controlar e finalizar conversações (chamadas de sessões). Isso inclui o contorlle e o gerenciamento de múltiplas mensagens bidirecionais, de forma que a aplicação possa ser notificada no caso de apenas algumas de uma série de mensagens que forem transmitidas com sucesso. Isso permite a camada de apresentação ter uma vis]ao abrangente de um fluxo de dados recebidos.
+A camada de sessão define como iniciar, controlar e finalizar conversações (chamadas de sessões). Isso inclui o controle e o gerenciamento de múltiplas mensagens bidirecionais, de forma que a aplicação possa ser notificada no caso de apenas algumas de uma série de mensagens que forem transmitidas com sucesso. Isso permite a camada de apresentação ter uma vis]ao abrangente de um fluxo de dados recebidos.
 
 4. Transporte
 
@@ -223,12 +211,11 @@ A camada de rede define três recursos principais: endereçamento lógico, rotea
 
 2. Enlace
 
-Define os protocolos que determinam quando um dispositivo poderá enviar dados através de uma determinada mídia. Os protocolos de enlace tambpem definem o formato de um cabeçalho e de um rodapé que permitem que dispositivos enviem e recebam dados com sucesso. O rodapé de enlace, que segue os dados encapsulados, geralmente define um campo de sequencia de verificação de frames (frame check sequence ou FCS), que permite que o dispositivo que está recebendo dados detecte erros de transmissão. Ethernet, ppp, frame relay são alguns protocolos da camada de enlace.
+Define os protocolos que determinam quando um dispositivo poderá enviar dados através de uma determinada mídia. Os protocolos de enlace também definem o formato de um cabeçalho e de um rodapé que permitem que dispositivos enviem e recebam dados com sucesso. O rodapé de enlace, que segue os dados encapsulados, geralmente define um campo de sequencia de verificação de frames (frame check sequence ou FCS), que permite que o dispositivo que está recebendo dados detecte erros de transmissão. Ethernet, ppp, mpls e frame relay são alguns protocolos da camada de enlace.
 
 1. Física
 
-Esta camada refere-se a padrões de outras organizações. Esses padrões lidam com as caracterisiticas físicas da midia de transmissão, que inclui, conectores, pinos, uso dos pinos, correntes elétricas, codificação, modulação de luz e as regras de como ativar e desativar o uso de mídia física.
-RJ 45, v.35, ethernet são alguns protocolos de camada física.
+Esta camada refere-se a padrões de outras organizações. Esses padrões lidam com as caracterisiticas físicas da midia de transmissão, que inclui, conectores, pinos, uso dos pinos, correntes elétricas, codificação, modulação de luz e as regras de como ativar e desativar o uso de mídia física. RJ 45, v.35, ethernet são alguns protocolos de camada física.
 
 ### Encapsulamento de dados do modelo osi
 
