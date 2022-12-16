@@ -112,7 +112,7 @@ O objetivo final de cada protocolo de roteamento é preencher a tabela com todos
 
 ## Definições do Endereçamento IP 
 
-Se um dispositivo deseja se comunicar usando o TCPIIP, ele precisa de um endereço IP. Quando o dispositivo possui um endereço IP e o software e hardware apropriados, ele é capaz de enviar e receber pacotes IP. Qualquer dispositivo capaz de enviar e receber pacotes IP é chamado de host IP. 
+Se um dispositivo deseja se comunicar usando o TCP/IP, ele precisa de um endereço IP. Quando o dispositivo possui um endereço IP e o software e hardware apropriados, ele é capaz de enviar e receber pacotes IP. Qualquer dispositivo capaz de enviar e receber pacotes IP é chamado de host IP. 
 
 Os endereços IP consistem de um número de 32 bits, geralmente escrito em notação decimal pontuada. A parte
 "decimal" dessa expressão se deve ao fato de que cada byte (8 bits) do endereço IP de 32 bits é mostrado como o seu equivalente decimal. 

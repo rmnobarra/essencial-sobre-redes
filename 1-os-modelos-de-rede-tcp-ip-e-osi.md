@@ -124,7 +124,7 @@ O solicitante envia o pacote para o roteador1. O roteador1 então examina o ende
 
 O IP define endereços lógicos, chamados endereços ip, os quais permitem que cada dispositivo que entenda o tcp/ip tenha um endereço através do qual possa se comunicar. O ip define também o roteamento, que é processo de como um roteador deverá reencaminhar, ou rotear, pacotes de dados.
 
-### A camadade acesso à rede tcp/ip
+### A camada de acesso à rede tcp/ip
 
 A camada de acesso à rede define os protocolos e hardware requeridos para se distribuir dados dentro de uma rede física. A expressão acesso à rede refere-se ao fato de que esta camada define como conectar fisicamente um dispositivo á mídia física através da qual os dados podem ser transmitidos. Por exemplo, ethernet é um tipo de protocolo da camada de acesso à rede do tcp/ip. Ethernet define o cabeamento, endereçamento e protocolos utilizados para se distribuir dados através de links que atravessam a internet.
 

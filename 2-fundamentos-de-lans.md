@@ -21,13 +21,17 @@ Na realidade, os endereços MAC recebem os seus nomes do nome IEEE para essa par
 
 Cada novo padrão de camada física criado pelo IEEE requer muitas diferenças na camada física. Entretanto, cada um desses padrões usa o mesmo cabeçalho 802.3, e usa também a sub-camada superior LLC.
 
+A primeira subcamada, conhecida como protocolo IEEE 802.2 foi desenvolvida e adicionada ao modelo OSI com objetivo de melhorar a passagem das informações que vinham da camada de rede e eventualmente encontravam dificuldades de comunicação com as diversas tecnologias físicas existentes na camada de enlace. Mesmo o padrão Ethernet, em alguns casos, apresentava variações que justificavam a existência do LLC.
+
+Por outro lado, a subcamada MAC, traz consigo a ligação mais direta com tecnologias físicas,  tais  como  ethernet  e  suas  variações.  Esta  subcamada  também  está  relacionada ao endereço físico dos dispositivos de rede, conhecido como MAC address. Um  mecanismo  de  correção  de  erros  existente  no  Frame  Ethernet,  atribui  alguma qualidade a esta camada para que os dados passem por alguma validação antes e após sua passagem pelos meios físicos. 
+
 ## Os Padrões Ethernet Originais: 10BASE2 e 10BASE5 
 
 É mais fácil entender a Ethernet considerando-se primeiramente as duas especificações Ethernet iniciais, IOBASE5 e IOBASE2. 
 
-Essas duas especificações Ethernet definiram os detalhes das camadas fisica e de enlace das primeiras redes Ethernet. (I OBASE2 e IOBASE5 diferem nos seus detalhes de cabeamento, mas para a discussão deste capítulo, você pode considerar como se elas se comportassem de forma idêntica.) Com essas duas especificações, o engenheiro de rede instalava uma série de cabos coaxiais conectando cada dispositivo da rede Ethernet. Não havia hubs, switches e nem painéis de fiação. A Ethemet consistia unicamente das várias placas de rede instaladas nos computadores e do cabeamento coaxial. A série de cabos criava um circuito elétrico, chamado de bus, que era compartilhado entre todos os dispositivos da Ethernet. Quando um computador queria enviar alguns bits para outro computador do bus, enviava um sinal elétrico e a eletricidade se propagava para todos os dispositivos da Ethernet. 
+Essas duas especificações Ethernet definiram os detalhes das camadas fisica e de enlace das primeiras redes Ethernet. (1OBASE2 e 1OBASE5 diferem nos seus detalhes de cabeamento, mas para a discussão deste capítulo, você pode considerar como se elas se comportassem de forma idêntica.) Com essas duas especificações, o engenheiro de rede instalava uma série de cabos coaxiais conectando cada dispositivo da rede Ethernet. Não havia hubs, switches e nem painéis de fiação. A Ethernet consistia unicamente das várias placas de rede instaladas nos computadores e do cabeamento coaxial. A série de cabos criava um circuito elétrico, chamado de bus, que era compartilhado entre todos os dispositivos da Ethernet. Quando um computador queria enviar alguns bits para outro computador do bus, enviava um sinal elétrico e a eletricidade se propagava para todos os dispositivos da Ethernet. 
 
-A Figura mostra a lógica básica de uma antiga rede Ethernet IOBASE2, usando um único bus elétrico, criada com cabos coaxiais e placas Ethernet. 
+A Figura mostra a lógica básica de uma antiga rede Ethernet 1OBASE2, usando um único bus elétrico, criada com cabos coaxiais e placas Ethernet. 
 
 ![Rede 10base2](resources/img/rede10base2.png)
 
@@ -45,7 +49,7 @@ entender o que duas pessoas estão dizendo ao mesmo tempo, de forma que, em gera
 Imaginem que pc1 e pc2 queiram ambos responder aos comentários do orador atual. Assim que o orador faz
 uma pausa para respirar, os dois tentam falar. Se pc1 ouve a voz de pc2 antes de conseguir articular um som, pc3 poderá parar e deixar pc2 falar. Ou talvez ambos comecem quase ao mesmo tempo, falando simultaneamente sem que ninguém consiga entender o que está sendo dito. Então acontece o familiar "Me desculpe, continue o que estava dizendo", e pc1 ou pc2 retoma sua fala. Ou talvez uma terceira pessoa apareça e comece a falar enquanto pc1 e pc2 estão baixando suas vozes. Essas "regras" dependem da cultura local; o CSMA/CD baseia-se nas especificações do protocolo Ethernet para atingir o mesmo tipo de objetivo. 
 
-Basicamente, o algoritmo CSMNCD pode ser resumido da seguinte forma: 
+Basicamente, o algoritmo CSMA/CD pode ser resumido da seguinte forma: 
 
 * Um dispositivo que queira enviar um frame esperará até que a LAN esteja em silêncio - em outras palavras, que nenhum frame esteja sendo enviado - antes de tentar enviar um sinal elétrico. 
 
@@ -70,7 +74,7 @@ Não espere que você vá precisar implementar LANs Ethernet lOBASE5 ou 10BASE2 
 
 * As LANs Ethernet originais criavam um bus elétrico ao qual todos os dispositivos se conectavam. 
 
-* Pelo fato de que colisões ocorriam nesse bus, a Ethernet definiu o algoritmo CSMAlCD, o qual definia uma forma tanto de evitar as colisões quanto de agir quando elas acontecessem. 
+* Pelo fato de que colisões ocorriam nesse bus, a Ethernet definiu o algoritmo CSMA/CD, o qual definia uma forma tanto de evitar as colisões quanto de agir quando elas acontecessem. 
 
 * Os repetidores estendiam o tamanho das LANs ao limpar o sinal elétrico e repeti-lo - uma função de Camada 1 - mas sem interpretar o significado do sinal elétrico. 
 
@@ -78,9 +82,9 @@ Não espere que você vá precisar implementar LANs Ethernet lOBASE5 ou 10BASE2 
 
 Posteriormente, o IEEE definiu novos padrões Ethernet além de IOBASE5 e 10BASE2. Cronologicamente, o padrão 1OBASE-T veio em seguida (1990), seguido pelo 100BASE-TX (1995) e depois pelo 1000BASE-T (1999). Para dar suporte a esses novos padrões, dispositivos de redes chamados hubs e switches foram também criados.  
 
-1OBA SE-T resolveu diversos problemas das especificações Ethernet 10BASE5 e 10BASE2 iniciais. 1OBASE-T permitiu o uso de cabeamento telefônico UTP que já estaria instalado. Mesmo que fosse necessário instalar um novo cabeamento, o UTP, barato e fácil de instalar, substituiria o cabeamento coaxial antigo, caro e difícil de instalar. 
+1OBASE-T resolveu diversos problemas das especificações Ethernet 10BASE5 e 10BASE2 iniciais. 1OBASE-T permitiu o uso de cabeamento telefônico UTP que já estaria instalado. Mesmo que fosse necessário instalar um novo cabeamento, o UTP, barato e fácil de instalar, substituiria o cabeamento coaxial antigo, caro e difícil de instalar. 
 
-Uma outra grande melhoria introduzida com 1 OBASE-T, e que permanece uma questão-chave dos projetos ainda hoje, é o conceito de se cabe ar cada dispositivo a um ponto de conexão centralizado. Originalmente, 1OBASE-T pedia o uso de hubs Ethernet.
+Uma outra grande melhoria introduzida com 1OBASE-T, e que permanece uma questão-chave dos projetos ainda hoje, é o conceito de se cabear cada dispositivo a um ponto de conexão centralizado. Originalmente, 1OBASE-T pedia o uso de hubs Ethernet.
 
 ![Rede 10baset](resources/img/rede10baset.png)
 
@@ -93,7 +97,9 @@ Os hubs são essencialmente repetidores com múltiplas portas fisicas. Isso sign
 Redes 1OBASE-T usando hubs resolveram alguns grandes problemas com 1OBASE5 e 1OBASE2. Primeiramente, a
 LAN passava a ter disponibilidade muito maior, pois na época das LANs 1OBASE5 e 1OBASE2, um problema com um único cabo podia fazer, e provavelmente fazia, a rede cair. Com 1OBASE-T, um cabo conecta cada dispositivo ao hub, de modo que um problema com um único cabo afeta apenas um dispositivo. Conforme mencionado anteriormente, o uso de cabeamento UTP, em uma topologia de estrela (todos os cabos indo para um dispositivo de conexão centralizado), diminuiu o custo de se adquirir e instalar o cabeamento. 
 
-Hoje em dia, você ainda pode usar hubs ocasionalmente em LANs, mas é mais provável que use switches em vez de hubs. Os switches têm desempenho muito melhor do que os hubs, oferecem suporte a mais funções e normalmente custam quase o mesmo que os hubs. Entretanto, tenha em mente diversos pontos-chave sobre a história da Ethernet ao passarmos para os conceitos relacionados às LANs modernas: 
+Hoje em dia, você ainda pode usar hubs ocasionalmente em LANs, mas é mais provável que use switches em vez de hubs. Os switches têm desempenho muito melhor do que os hubs, oferecem suporte a mais funções e normalmente custam quase o mesmo que os hubs. 
+
+Entretanto, tenha em mente diversos pontos-chave sobre a história da Ethernet ao passarmos para os conceitos relacionados às LANs modernas: 
 
 * As LANs Ethernet originais criavam um bus elétrico ao qual todos os dispositivos se conectavam. 
 
@@ -106,7 +112,7 @@ função de Camada I - mas sem interpretar o significado do sinal elétrico.
 
 ## Cabeamento Ethernet UTP 
 
-Os três padrões Ethernet mais comumente usados hoje em dia - 1 OBASE-T (Ethernet), 1 OOBASE-TX (Fast Ethernet, ou FE) e lOOOBASE-T (Gigabit Ethernet, ou GE) - usam cabeamento UTP. Existem algumas diferenças importantes, particularmente no que se refere ao número de pares de fios necessários em cada caso e no tipo (categoria) de cabeamento. 
+Os três padrões Ethernet mais comumente usados hoje em dia - 1OBASE-T (Ethernet), 1OOBASE-TX (Fast Ethernet, ou FE) e 1OOOBASE-T (Gigabit Ethernet, ou GE) - usam cabeamento UTP. Existem algumas diferenças importantes, particularmente no que se refere ao número de pares de fios necessários em cada caso e no tipo (categoria) de cabeamento. 
 
 ## Cabos UTP e Conectores RJ-45 
 
@@ -138,7 +144,7 @@ Quando alguma corrente atravessa qualquer fio, essa corrente induz um campo magn
 
 Devido a essa característica, a maioria dos cabos de rede que usa fios de cobre e eletricidade acaba usando pares trançados de fios para enviar dados. 
 
-Para enviar dados através do circuito elétrico criado através de um par de fios, os dispositivos usam um esquema de codificação que define como o sinal elétrico deverá variar, ao longo do tempo, para significar ou O ou 1 binário. Por exemplo, 1OBA SE-T usa um esquema que codifica um O binário como uma transição de voltagem mais alta para voltagem mais baixa, no curso de um intervalo de 1/1O,OOO,OOO-ésimo de segundo. Os detalhes elétricos da codificação não são importantes para os propósitos deste livro. 
+Para enviar dados através do circuito elétrico criado através de um par de fios, os dispositivos usam um esquema de codificação que define como o sinal elétrico deverá variar, ao longo do tempo, para significar ou O ou 1 binário. Por exemplo, 1OBASE-T usa um esquema que codifica um O binário como uma transição de voltagem mais alta para voltagem mais baixa, no curso de um intervalo de 1/1O,OOO,OOO-ésimo de segundo. Os detalhes elétricos da codificação não são importantes para os propósitos deste livro. 
 
 Mas é importante perceber que os dispositivos de rede criam um circuito elétrico usando cada par de fios e variam o sinal conforme definido pelo esquema de codificação para enviar bits através do par de fios.
 
@@ -148,7 +154,7 @@ Os fios do cabo UTP precisam ser conectados às posições de pinos corretas, no
 
 Curiosamente, o IEEE não define realmente os padrões oficiais para fabricação de cabos, como também não define parte dos detalhes sobre as convenções usadas para as pinagens de cabos. Nos EUA, dois grupos industriais trabalhando em cooperação, a Associação da Indústria de Telecomunicações ( Telecommunications Industry Association, ou TIA) e a Aliança da Indústria de Eletrônicos (Electronics Industry Alliance, ou ElA), definem padrões para cabeamento UTP, códigos de cores para os fios e pinagens padrões para os cabos. (Consulte http://www.tiaonline.org e http://www.eia.org.)
 
-![Padrões de conectores 568A e 568B](resources/img/n568A-568B.png)
+![Padrões de conectores 568A e 568B](resources/img/568A-568B.png)
 
 Para montar uma LAN Ethernet funcional, você precisa escolher ou montar cabos que usem a pinagem correta em ambas as extremidades. A Ethernet 1OBASE-T e a 1OOBASE-TX definem que um par deve ser usado para enviar dados em uma direção e o outro na direção contrária. Em particular, as placas de rede Ethernet devem enviar dados usando o par conectado aos pinos 1 e 2 - em outras palavras, o par 3, de acordo com o padrão de pinagem T568A mostrado na acima. 
 
@@ -175,13 +181,13 @@ switch usa para transmitir - conectam-se aos pinos 1 e 2 na outra extremidade, p
 
 ## Cabeamento 1000BASE-T 
 
-Conforme mencionado anteriormente, lOOOBASE-T difere de IOBASE-T e lOOBASE-TX no que diz respeito ao
-cabeamento e às pinagens. Primeiramente, lOOOBASE-T requer quatro pares de fios. Além disso, a Ethernet Gigabit transmite e recebe em cada um dos quatro pares de fios simultaneamente.
+Conforme mencionado anteriormente, 1OOOBASE-T difere de IOBASE-T e 1OOBASE-TX no que diz respeito ao
+cabeamento e às pinagens. Primeiramente, 1OOOBASE-T requer quatro pares de fios. Além disso, a Ethernet Gigabit transmite e recebe em cada um dos quatro pares de fios simultaneamente.
 Entretanto, a Ethernet Gigabit possui um conceito de cabos diretos e crossover, com uma pequena diferença nos crossover. As pinagens para um cabo direto são as mesmas - pino 1 para pino 1, pino 2 para pino 2, e assim por diante. O cabo crossover cruza o mesmo par de dois fios que o cabo crossover usado para outros tipos de Ethernet - o par dos pinos 1 e 2 e 3 e 6 - , e também cruza os dois outros pares (o par nos pinos 4 e 5 com o par nos pinos 7 e 8). 
 
 ## Aumentando a Largura de Banda Disponível Usando-se Switches 
 
-A expressão domínio de colisão define o conjunto de dispositivos cujos frames poderiam colidir. Todos os dispositivos em uma 1OBASE2, 1OBASE5, ou qualquer rede usando um hub, correm o risco de ter colisões entre os frames que enviam, de modo que todos os dispositivos desses tipos de redes Ethernet encontram-se no mesmo domínio de colisão.
+A expressão domínio de colisão define o conjunto de dispositivos cujos frames poderiam colidir. Todos os dispositivos em uma rede 1OBASE2, 1OBASE5, ou qualquer rede usando um hub, correm o risco de ter colisões entre os frames que enviam, de modo que todos os dispositivos desses tipos de redes Ethernet encontram-se no mesmo domínio de colisão.
 
 Para evitar colisões, e para se recuperar quando elas ocorrem, os dispositivos em um mesmo domínio de colisão usam CSMA/CD. 
 
@@ -201,30 +207,31 @@ Esses recursos aparentemente simples dos switches fornecem melhorias de desempen
 
 * Dispositivos conectados a uma porta do switch não compartilham a sua largura de banda com dispositivos conectados a outra porta do switch. Cada um possui a sua largura de banda separada, o que significa que um switch com portas de 100 Mbps possui 100 Mbps de largura de banda por porta. 
 
-O segundo ponto refere-se aos conceitos por trás dos termos Ethernet compartilhada e Ethernet com switch. Conforme mencionado anteriormente, Ethemet compartilhada significa que a largura de banda da LAN é compartilhada entre os dispositivos da LAN, pois eles precisam aguardar a vez para usar a LAN, de acordo com o algoritmo CSMA/CD. 
+O segundo ponto refere-se aos conceitos por trás dos termos Ethernet compartilhada e Ethernet com switch. Conforme mencionado anteriormente, Ethernet compartilhada significa que a largura de banda da LAN é compartilhada entre os dispositivos da LAN, pois eles precisam aguardar a vez para usar a LAN, de acordo com o algoritmo CSMA/CD. 
 
 A expressão Ethernet com switch refere-se ao fato de que, com switches, a largura de banda não precisa ser
-compartilhada, permitindo um desempenho muito superior. Por exemplo, um hub com 24 dispositivos Ethemet de 100Mbps conectados permite um máximo teórico de 100 Mbps de largura de banda. Entretanto, um switch com 24 dispositivos Ethernet de 100 Mbps conectados oferece suporte a 100 Mbps para cada porta, ou teoricamente 2400 Mbps (2.4 Gbps) de largura de banda máxima. 
+compartilhada, permitindo um desempenho muito superior. Por exemplo, um hub com 24 dispositivos Ethernet de 100Mbps conectados permite um máximo teórico de 100 Mbps de largura de banda. Entretanto, um switch com 24 dispositivos Ethernet de 100 Mbps conectados oferece suporte a 100 Mbps para cada porta, ou teoricamente 2400 Mbps (2.4 Gbps) de largura de banda máxima. 
 
 ## Duplicando o Desempenho Através do Uso de Ethernet Full-Duplex 
 
-Qualquer rede Ethemet que use hubs precisa que a lógica CSMA/CD opere corretamente. Entretanto, o CSMA/CD
-impõe uma lógica half-duplex em cada dispositivo, o que significa que apenas um dispositivo pode enviar dados de cada vez. Pelo fato de os switches poderem armazenar frames em buffer, eles são capazes de eliminar completamente as colisões em portas do switch que se conectem a um único dispositivo. Como resultado, os switches LAN com apenas um dispositivo cabeado a cada porta permitem o uso de operação full-duplex. FuI! duplex significa que uma placa Ethernet pode enviar e receber simultaneamente. 
+Qualquer rede Ethernet que use hubs precisa que a lógica CSMA/CD opere corretamente. Entretanto, o CSMA/CD
+impõe uma lógica half-duplex em cada dispositivo, o que significa que apenas um dispositivo pode enviar dados de cada vez. Pelo fato de os switches poderem armazenar frames em buffer, eles são capazes de eliminar completamente as colisões em portas do switch que se conectem a um único dispositivo. 
+
+Como resultado, os switches LAN com apenas um dispositivo cabeado a cada porta permitem o uso de operação full-duplex. Full duplex significa que uma placa Ethernet pode enviar e receber simultaneamente. 
 
 ## Operação Full-Duplex Usando-se um Switch 
 
 ![Full Duplex](resources/img/full-duplex.jpg)
 
-
 Com apenas o switch e um dispositivo conectados um ao outro, é impossível acontecerem colisões. Quando você implementa o full duplex, você desabilita a lógica CSMA/CD nos dispositivos das duas extremidades do cabo. Ao fazer isso, nenhum dos dispositivos sequer pensa mais em CSMA/CD e, portanto, pode enviar dados quando quiser. Como resultado, o desempenho da Ethernet nesse cabo foi duplicado ao se permitir transmissões simultâneas em ambas as direções. 
 
 ## Protocolos de Enlace para o padrão Ethernet 
 
-Uma das qualidades mais significativas da família de protocolos Ethernet é que esses protocolos usam o mesmo pequeno conjunto de padrões de enlace. Por exemplo, o endereçamento Ethemet funciona da mesma forma em todas as variações da Ethernet, desde 1OBASE5 até a Ethemet de 1OGbps - incluindo padrões Ethernet que usam outros tipos de cabeamento que não o UTP. Além disso, o algoritmo CSMA/CD faz parte, tecnicamente, da camada de enlace, novamente aplicandose à maioria dos tipos de Ethemet, a não ser que tenha sido desabilitado. 
+Uma das qualidades mais significativas da família de protocolos Ethernet é que esses protocolos usam o mesmo pequeno conjunto de padrões de enlace. Por exemplo, o endereçamento Ethernet funciona da mesma forma em todas as variações da Ethernet, desde 1OBASE5 até a Ethernet de 1OGbps - incluindo padrões Ethernet que usam outros tipos de cabeamento que não o UTP. Além disso, o algoritmo CSMA/CD faz parte, tecnicamente, da camada de enlace, novamente aplicandose à maioria dos tipos de Ethernet, a não ser que tenha sido desabilitado. 
 
 ## Endereçamento Ethernet 
 
-o endereçamento LAN Ethemet identifica ou dispositivos individuais ou grupos de dispositivos em uma LAN. Cada endereço possui 6 bytes, é geralmente escrito em hexadecimal e, em dispositivos Cisco, geralmente é escrito com pontos separando cada conjunto de quatro dígitos hexa. Por exemplo, OOOO.OCI2.3456 é um endereço Ethernet válido. 
+o endereçamento LAN Ethernet identifica ou dispositivos individuais ou grupos de dispositivos em uma LAN. Cada endereço possui 6 bytes, é geralmente escrito em hexadecimal e, em dispositivos Cisco, geralmente é escrito com pontos separando cada conjunto de quatro dígitos hexa. Por exemplo, OOOO.OCI2.3456 é um endereço Ethernet válido. 
 
 Endereços Ethernet unicast identificam uma única placa LAN. (O termo unicast foi escolhido principalmente para contrastar com os termos broadcast, multicast e endereços de grupos.) 
 
@@ -232,7 +239,6 @@ Os computadores usam endereços unicast para identificar o remetente e o destina
 
 O IEEE define o formato e a atribuição de endereços LAN. O IEEE requer endereços MAC unicast, globalmente
 únicos, em todas as placas de interface LAN. (O IEEE os chama de endereços MAC porque protocolos MAC tais como o IEEE 802.3 definem os detalhes do endereçamento.) Para garantir um endereço MAC único, os fabricantes das placas Ethernet codificam o endereço MAC na placa, geralmente em um chip de ROM. A primeira metade do endereço identifica o fabricante da placa. Esse código, que é atribuído a cada fabricante pelo IEEE, é chamado de identificador organizacional único (organizationally unique identifier, ou OUI). Cada fabricante atribui um endereço MAC com o seu próprio OUI sendo a primeira metade do endereço e com a segunda metade recebendo um número que o fabricante jamais usou em outra placa.
-
 
 ![Mac address](resources/img/mac-address.png)
 
@@ -268,7 +274,7 @@ placa de rede que esteja recebendo os dados determine se o frame passou por erro
 
 
 A especificação IEEE 802.3 limita a parte de dados do frame 802.3 a um máximo de 1500 bytes. O campo Dados foi designado para armazenar pacotes de Camada 3; o termo unidade máxima de transmissão (maximum transmission unit, ou MTU) define o tamanho máximo do pacote de Camada 3 que pode ser enviado através de uma determinada mídia. Pelo fato de os pacotes de Camada 3 residirem dentro da parte de dados de um
-frame Ethemet, 1500 bytes é o maior MTU lP permitido em uma Ethernet.
+frame Ethernet, 1500 bytes é o maior MTU lP permitido em uma Ethernet.
 
 ## Identificando os Dados dentro de um Frame Ethernet 
 
@@ -278,7 +284,7 @@ Todos esses protocolos de Camada 3, além de diversos outros, poderiam usar Etbe
 
 Para responder a essa pergunta, a maioria dos cabeçalhos de protocolos de enlace, incluindo a Ethernet, possui um campo com um código que define o tipo de cabeçalho de protocolo que segue. Falando genericamente, esses campos nos cabeçalhos de enlace são chamados de campos de Tipos. Por exemplo, para indicar que há um pacote IP dentro do frame Ethernet, o campo de Tipo teria um valor de 0800 hexadecimal (2048 decimal). Outros tipos de L3 PDUs seriam indicados usando-se um valor diferente no campo Tipo. 
 
-Para se criar um campo Tipo para frames que usem o campo Tipo / Extensão como um campo Extensão, são adicionados um ou dois cabeçalhos após o cabeçalho Ethemet 802.3, mas antes do da Camada 3. Por exemplo, ao se enviar pacotes IP, o frame Ethemet possui dois cabeçalhos adicionais: 
+Para se criar um campo Tipo para frames que usem o campo Tipo / Extensão como um campo Extensão, são adicionados um ou dois cabeçalhos após o cabeçalho Ethernet 802.3, mas antes do da Camada 3. Por exemplo, ao se enviar pacotes IP, o frame Ethernet possui dois cabeçalhos adicionais: 
 
 * Um cabeçalho de Controle de Enlace Lógico (LLC) IEEE 802.2 
 
@@ -286,11 +292,11 @@ Para se criar um campo Tipo para frames que usem o campo Tipo / Extensão como u
 
 ## Detecção de Erros 
 
-A última função da camada de enlace Etbernet explicada aqui é a detecção de erros. A detecção de erros é o processo de se descobrir se os bits de um frame se modificaram como resultado de terem sido enviados através da rede. Os bits poderiam se modificar por muitas pequenas razões, mas geralmente tais erros ocorrem como resultado de algum tipo de interferência elétrica. 
+A última função da camada de enlace Ethernet explicada aqui é a detecção de erros. A detecção de erros é o processo de se descobrir se os bits de um frame se modificaram como resultado de terem sido enviados através da rede. Os bits poderiam se modificar por muitas pequenas razões, mas geralmente tais erros ocorrem como resultado de algum tipo de interferência elétrica. 
 
 Como acontece com todos os protocolos de enlace, a Ethernet define um cabeçalho e um rodapé, com o rodapé contendo um campo usado para o propósito de detecção de erros.
 
-O campo Seqüência de Verificação de Frame (Frame Cbeck Sequence, ou FCS) do rodapé Ethernet - o único campo desse rodapé - permite que o dispositivo que esteja recebendo o frame Ethemet detecte se os bits se modificaram durante a transmissão. 
+O campo Seqüência de Verificação de Frame (Frame Cbeck Sequence, ou FCS) do rodapé Ethernet - o único campo desse rodapé - permite que o dispositivo que esteja recebendo o frame Ethernet detecte se os bits se modificaram durante a transmissão. 
 
 Para detectar um erro, o dispositivo remetente calcula uma complexa função matemática, com o conteúdo do frame como input, colocando o resultado no campo FCS, de 4 bytes, do frame. O dispositivo destinatário faz o mesmo cálculo sobre o frame; se o seu cálculo bater com o campo FCS do frame, é sinal de que não ocorreram erros.
 
