@@ -15,9 +15,3 @@ Este conteúdo não necessáriamente precisa ser consumido em determinada ordem,
 [Conceitos de switching](6-conceitos-de-switching.md)
 
 [Protocolos de roteamento](7-protocolos-de-roteamento.md)
-
-[VPN](vpn.md)
-
-[Proxies](9-proxies.md)
-
-[Firewall](10-firewall.md)
