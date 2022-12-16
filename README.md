@@ -4,7 +4,7 @@ Este conteúdo não necessáriamente precisa ser consumido em determinada ordem,
 
 [Os modelos de rede tcp/ip](1-os-modelos-de-rede-tcp-ip-e-osi.md)
 
-[Fundamentos de LANs](2-fundamentos-de-lans.MD)
+[Fundamentos de LANs](2-fundamentos-de-lans.md)
 
 [Fundamentos de endereçamento e roteamento ip](3-fundamentos-de-enderecamento-e-roteamento-ip.md)
 
